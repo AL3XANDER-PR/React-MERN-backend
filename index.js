@@ -1,14 +1,18 @@
 const express = require("express");
+require("dotenv").config();
 
 // Crear el servidor de express
 const app = express();
 
+// Directorio publico
+app.use(express.static("public"));
+
 // Rutas
-app.get("/", (req, res) => {
-  res.json({ ok: true });
-});
+// app.get("/", (req, res) => {
+//   res.json({ ok: true });
+// });
 
 // Escuchar peticiones
-app.listen(4000, () => {
-  console.log(`servidor en puerto ${4000}`);
+app.listen(process.env.PORT, () => {
+  console.log(`servidor en puerto ${process.env.PORT}`);
 });
